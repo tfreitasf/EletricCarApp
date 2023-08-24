@@ -3,4 +3,23 @@
     <string name="txt_eletric_car">Eletric Car</string>
     <string name="txt_cars">Carros</string>
     <string name="txt_favoritos">Favoritos</string>
+    <string name="cd_tesla_model_s_carro_el_trico_da_tesla">Tesla Model S - Carro Elétrico da Tesla</string>
+    <string name="tv_price">Preço</string>
+    <string name="tv_value">R$ 300.000,00</string>
+    <string name="tv_battery">Bateria</string>
+    <string name="tv_batteryCapacity">300 kWh</string>
+    <string name="tv_power">Potência</string>
+    <string name="tv_horsePower">100cv</string>
+    <string name="tv_recharge">Recarga\n</string>
+    <string name="tv_rechargeValue">30 minutos</string>
+    <string name="tv_kwPrice">Preço kWh\n</string>
+    <string name="tv_travelledDistance">Km percorrido</string>
+    <string name="tv_calculate">Calcular</string>
+
+    <string-array name="array_cidades">
+        <item>Mirassol</item>
+        <item>Bady Bassit</item>
+        <item>Tanabi</item>
+
+    </string-array>
 </resources>
