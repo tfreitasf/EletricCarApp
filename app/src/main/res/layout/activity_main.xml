@@ -115,47 +115,7 @@
         app:layout_constraintStart_toEndOf="@id/tv_recharge"
         app:layout_constraintTop_toBottomOf="@id/tv_power" />
 
-    <EditText
-        android:id="@+id/et_kwhprice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:ems="10"
-        android:hint="@string/tv_kwPrice"
-        android:inputType="numberDecimal"
-        android:maxLength="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_rechargevalue" />
 
-    <EditText
-        android:id="@+id/et_travelleddistance"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="@string/tv_travelledDistance"
-        android:inputType="numberDecimal"
-        android:maxLength="10"
-        app:layout_constraintEnd_toEndOf="@id/et_kwhprice"
-        app:layout_constraintStart_toStartOf="@id/et_kwhprice"
-        app:layout_constraintTop_toBottomOf="@+id/et_kwhprice" />
-
-    <Button
-        android:id="@+id/bt_calculate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/tv_calculate"
-        app:layout_constraintEnd_toEndOf="@id/et_travelleddistance"
-        app:layout_constraintStart_toStartOf="@id/et_travelleddistance"
-        app:layout_constraintTop_toBottomOf="@id/et_travelleddistance" />
-
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/bt_calculate"
-        app:layout_constraintTop_toBottomOf="@id/bt_calculate" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_calculate"
