@@ -1,11 +1,12 @@
-package br.com.povengenharia
+package br.com.povengenharia.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import br.com.povengenharia.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var travelledDistance: EditText
     lateinit var btnCalculate: Button
     lateinit var result: TextView
+    lateinit var fabtnCalculate : FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         btnCalculate = findViewById(R.id.bt_calculate)
         travelledDistance = findViewById(R.id.et_travelleddistance)
         result = findViewById(R.id.tv_result)
+        fabtnCalculate = findViewById(R.id.fab_calculate)
 
     }
 
