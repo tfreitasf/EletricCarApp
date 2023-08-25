@@ -16,6 +16,7 @@
     <string name="tv_travelledDistance">Km percorrido</string>
     <string name="tv_calculate">Calcular</string>
     <string name="tv_calculate_autonomy">Calcular Autonomia</string>
+    <string name="bt_calculate">Botão para fazer cálculo de autonomia do veículo</string>
 
     <string-array name="array_cidades">
         <item>Mirassol</item>
