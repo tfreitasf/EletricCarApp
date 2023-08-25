@@ -4,6 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/iv_closebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_titlecalculateautonomy"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/tv_calculate_autonomy"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_closebutton" />
+
     <EditText
         android:id="@+id/et_kwhprice"
         android:layout_width="0dp"
@@ -15,7 +35,7 @@
         android:maxLength="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tv_titlecalculateautonomy" />
 
     <EditText
         android:id="@+id/et_travelleddistance"
@@ -41,10 +61,10 @@
 
     <TextView
         android:id="@+id/tv_result"
+        style="@style/TextAppearance.AppCompat.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/bt_calculate"
-        style="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintTop_toBottomOf="@id/bt_calculate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
