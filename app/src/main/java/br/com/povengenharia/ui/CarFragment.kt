@@ -1,13 +1,19 @@
 package br.com.povengenharia.ui
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import br.com.povengenharia.R
@@ -23,6 +29,8 @@ class CarFragment : Fragment() {
     lateinit var fabtnCalculate: FloatingActionButton
     lateinit var carList: RecyclerView
     lateinit var progrssBar: ProgressBar
+    lateinit var noConnectionImage: ImageView
+    lateinit var noConnectionText: TextView
 
     var carsArray: ArrayList<Car> = ArrayList()
 
@@ -38,13 +46,36 @@ class CarFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupView(view)
         setupListner()
-        callService()
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (checkForInternet(context)) {
+            callService()
+        } else {
+            empetyState()
+
+
+        }
+    }
+
+    fun empetyState(){
+        progrssBar.visibility = View.GONE
+        carList.visibility = View.GONE
+        noConnectionImage.visibility = View.VISIBLE
+        noConnectionText.visibility = View.VISIBLE
     }
 
     fun setupView(view: View) {
-        fabtnCalculate = view.findViewById(R.id.fab_calculate)
-        carList = view.findViewById(R.id.rv_car_list)
-        progrssBar = view.findViewById(R.id.pb_loader)
+        view.apply {
+            fabtnCalculate = findViewById(R.id.fab_calculate)
+            carList = findViewById(R.id.rv_car_list)
+            progrssBar = findViewById(R.id.pb_loader)
+            noConnectionImage = findViewById(R.id.iv_empty_state)
+            noConnectionText = findViewById(R.id.tv_no_connection)
+        }
 
     }
 
@@ -66,6 +97,29 @@ class CarFragment : Fragment() {
         val urlBase = "https://tfreitasf.github.io/EletricCarApi/cars.json"
         MyTask().execute(urlBase)
 
+    }
+
+    fun checkForInternet(context: Context?): Boolean {
+        val connectivityManager =
+            context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val network = connectivityManager.activeNetwork ?: return false
+
+            val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+            return when {
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                else -> false
+            }
+
+        } else {
+            @Suppress("DEPRECATION")
+            val networkInfo = connectivityManager.activeNetworkInfo ?: return false
+            @Suppress("DEPRECATION")
+            return networkInfo.isConnected
+        }
     }
 
     inner class MyTask : AsyncTask<String, String, String>() {
@@ -151,6 +205,8 @@ class CarFragment : Fragment() {
                     carsArray.add(model)
                 }
                 progrssBar.visibility = View.GONE
+                noConnectionImage.visibility = View.GONE
+                noConnectionText.visibility = View.GONE
                 setupList()
             } catch (ex: Exception) {
                 Log.e("Erro", ex.message.toString())
