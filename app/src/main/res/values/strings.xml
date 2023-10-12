@@ -19,6 +19,7 @@
     <string name="bt_calculate">Botão para fazer cálculo de autonomia do veículo</string>
     <string name="tv_model">Model:</string>
     <string name="tv_model_name">Model S</string>
+    <string name="tv_no_connection">Ops, Internet não disponível.</string>
 
     <string-array name="array_cidades">
         <item>Mirassol</item>
