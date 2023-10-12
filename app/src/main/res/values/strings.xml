@@ -17,6 +17,8 @@
     <string name="tv_calculate">Calcular</string>
     <string name="tv_calculate_autonomy">Calcular Autonomia</string>
     <string name="bt_calculate">Botão para fazer cálculo de autonomia do veículo</string>
+    <string name="tv_model">Model:</string>
+    <string name="tv_model_name">Model S</string>
 
     <string-array name="array_cidades">
         <item>Mirassol</item>

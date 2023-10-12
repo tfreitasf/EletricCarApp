@@ -31,6 +31,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tv_model"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="60dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/tv_model"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_models" />
+
+            <TextView
+                android:id="@+id/tv_model_name"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/tv_model_name"
+                app:layout_constraintStart_toEndOf="@id/tv_price"
+                app:layout_constraintTop_toBottomOf="@id/iv_models" />
+
+            <TextView
                 android:id="@+id/tv_price"
                 style="@style/TextAppearance.AppCompat.Body2"
                 android:layout_width="60dp"
@@ -38,7 +58,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/tv_price"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_models" />
+                app:layout_constraintTop_toBottomOf="@id/tv_model" />
 
             <TextView
                 android:id="@+id/tv_pricevalue"
@@ -48,7 +68,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/tv_value"
                 app:layout_constraintStart_toEndOf="@id/tv_price"
-                app:layout_constraintTop_toBottomOf="@id/iv_models" />
+                app:layout_constraintTop_toBottomOf="@id/tv_model" />
 
             <TextView
                 android:id="@+id/tv_battery"

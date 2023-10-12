@@ -7,6 +7,7 @@ object CarFactory {
     val list = listOf(
         Car(
             1,
+            "Model S",
             "R$ 300.000,00",
             "300 kWh",
             "300 CV",
@@ -14,6 +15,7 @@ object CarFactory {
             "www.google.com.br"
         ), Car(
             2,
+            "Model X",
             "R$ 300.000,00",
             "300 kWh",
             "300 CV",

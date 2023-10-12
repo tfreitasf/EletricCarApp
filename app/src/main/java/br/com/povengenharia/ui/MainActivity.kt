@@ -1,17 +1,10 @@
 package br.com.povengenharia.ui
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.ActionBar.Tab
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import br.com.povengenharia.R
-import br.com.povengenharia.data.CarFactory
-import br.com.povengenharia.ui.adapter.CarAdapter
 import br.com.povengenharia.ui.adapter.TabAdapter
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.vp_view_pager)
 
     }
+
     fun setupTabs() {
         val tabAdapter = TabAdapter(this)
         viewPager.adapter = tabAdapter
