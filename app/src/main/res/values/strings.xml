@@ -21,6 +21,7 @@
     <string name="tv_model_name">Model S</string>
     <string name="tv_no_connection">Ops, Internet não disponível.</string>
     <string name="response_error">"Algo deu errado, por favor tente novamente mais tarde"</string>
+    <string name="saved_calc">saved_calc</string>
 
     <string-array name="array_cidades">
         <item>Mirassol</item>
