@@ -9,5 +9,6 @@ data class Car (
     @SerializedName("bateria") val battery : String,
     @SerializedName("potencia") val horsePower : String,
     @SerializedName("recarga") val recharge : String,
-    @SerializedName("urlPhoto") val urlPhoto: String
+    @SerializedName("urlPhoto") val urlPhoto: String,
+    var isFavorite: Boolean
 )

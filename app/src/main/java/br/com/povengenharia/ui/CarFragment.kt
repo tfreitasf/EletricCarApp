@@ -117,9 +117,14 @@ class CarFragment : Fragment() {
     }
 
     fun setupList(lista: List<Car>) {
-        val adapter = CarAdapter(lista)
+        val carsAdapter = CarAdapter(lista)
         carList.visibility = View.VISIBLE
-        carList.adapter = adapter
+        carList.adapter = carsAdapter
+        carsAdapter.carItemLister = {carro ->
+            val battery  = carro.battery
+
+
+        }
 
     }
 

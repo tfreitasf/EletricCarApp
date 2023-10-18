@@ -13,6 +13,8 @@ import com.squareup.picasso.Picasso
 class CarAdapter(private val cars: List<Car>) :
     RecyclerView.Adapter<CarAdapter.ViewHolder>() {
 
+    var carItemLister : (Car) -> Unit ={}
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
@@ -30,11 +32,29 @@ class CarAdapter(private val cars: List<Car>) :
         holder.battery.text = car.battery
         holder.power.text = car.horsePower
         holder.recharge.text = car.recharge
-        Picasso.get().load(car.urlPhoto).into(holder.imagege)
+        Picasso.get().load(car.urlPhoto).into(holder.image)
+        holder.favorite.setOnClickListener {
+            val carro =  cars[position]
+            carItemLister(carro)
+            setupFavorite(carro, holder)
+        }
 
 
 
 
+    }
+
+    private fun setupFavorite(
+        carro: Car,
+        holder: ViewHolder
+    ) {
+        carro.isFavorite = !carro.isFavorite
+
+        if (carro.isFavorite) {
+            holder.favorite.setImageResource(R.drawable.ic_star_selected)
+        } else {
+            holder.favorite.setImageResource(R.drawable.ic_star)
+        }
     }
 
     override fun getItemCount(): Int = cars.size
@@ -44,16 +64,18 @@ class CarAdapter(private val cars: List<Car>) :
         val battery : TextView
         val power : TextView
         val recharge : TextView
-        val imagege : ImageView
+        val image : ImageView
+        val favorite : ImageView
 
         init {
             view.apply {
-                modelName = view.findViewById(R.id.tv_model_name)
-                price = view.findViewById(R.id.tv_pricevalue)
-                battery = view.findViewById(R.id.tv_batteryvalue)
-                power = view.findViewById(R.id.tv_powervalue)
-                recharge = view.findViewById(R.id.tv_rechargevalue)
-                imagege = view.findViewById(R.id.iv_models)
+                modelName = findViewById(R.id.tv_model_name)
+                price = findViewById(R.id.tv_pricevalue)
+                battery = findViewById(R.id.tv_batteryvalue)
+                power = findViewById(R.id.tv_powervalue)
+                recharge = findViewById(R.id.tv_rechargevalue)
+                image = findViewById(R.id.iv_models)
+                favorite = findViewById(R.id.iv_favorite)
             }
         }
 
