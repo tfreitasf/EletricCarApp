@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import br.com.povengenharia.R
 import br.com.povengenharia.data.CarsApi
+import br.com.povengenharia.data.local.CarRepository
 import br.com.povengenharia.domain.Car
 import br.com.povengenharia.ui.adapter.CarAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -33,7 +34,6 @@ class CarFragment : Fragment() {
     lateinit var noConnectionImage: ImageView
     lateinit var noConnectionText: TextView
     lateinit var carsApi: CarsApi
-
 
 
     override fun onCreateView(
@@ -117,9 +117,13 @@ class CarFragment : Fragment() {
     }
 
     fun setupList(lista: List<Car>) {
-        val adapter = CarAdapter(lista)
+        val carsAdapter = CarAdapter(lista)
         carList.visibility = View.VISIBLE
-        carList.adapter = adapter
+        carList.adapter = carsAdapter
+        carsAdapter.carItemLister = { carro ->
+            val isSaved = CarRepository(requireContext()).saveIfNotExist(carro)
+
+        }
 
     }
 

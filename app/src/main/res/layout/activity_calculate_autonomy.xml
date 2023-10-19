@@ -62,7 +62,7 @@
 
     <TextView
         android:id="@+id/tv_result"
-        style="@style/TextAppearance.AppCompat.Body2"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/bt_calculate"

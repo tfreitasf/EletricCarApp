@@ -22,6 +22,19 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/iv_favorite"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_star"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
                 android:id="@+id/iv_models"
                 android:layout_width="378dp"
                 android:layout_height="150dp"
@@ -34,9 +47,9 @@
                 android:id="@+id/tv_model"
                 style="@style/TextAppearance.AppCompat.Body2"
                 android:layout_width="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/tv_model"
-                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_models" />
 

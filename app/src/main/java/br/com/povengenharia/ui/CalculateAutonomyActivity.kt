@@ -1,17 +1,13 @@
 package br.com.povengenharia.ui
 
-import android.os.AsyncTask
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.loader.content.AsyncTaskLoader
 import br.com.povengenharia.R
-import java.net.HttpURLConnection
-import java.net.URL
 
 class CalculateAutonomyActivity : AppCompatActivity() {
 
@@ -21,12 +17,21 @@ class CalculateAutonomyActivity : AppCompatActivity() {
     lateinit var result: TextView
     lateinit var btnClose : ImageView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculate_autonomy)
 
         setupView()
         setupListners()
+        setupCacheResult()
+
+
+    }
+
+    private fun setupCacheResult() {
+        val calculatedValue = getSharedPref()
+        result.text = calculatedValue.toString()
     }
 
     fun setupView() {
@@ -57,12 +62,24 @@ class CalculateAutonomyActivity : AppCompatActivity() {
 
         val costKmTraveled = price / travelledDistance
         result.text = costKmTraveled.toString()
-
-
-
-
+        saveSharedPref(costKmTraveled)
 
     }
+
+    fun saveSharedPref(result: Float){
+        val sharedPref = getSharedPreferences("db", Context.MODE_PRIVATE) ?: return
+        with(sharedPref.edit()){
+            putFloat(getString(R.string.saved_calc), result)
+            apply()
+        }
+    }
+
+    fun getSharedPref(): Float {
+        val sharedPref = getSharedPreferences("db", Context.MODE_PRIVATE)
+        return sharedPref.getFloat(getString(R.string.saved_calc), 0.0f)
+    }
+
+
 
 
 }
