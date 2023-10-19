@@ -32,16 +32,19 @@ class CarAdapter(private val cars: List<Car>) :
         holder.battery.text = car.battery
         holder.power.text = car.horsePower
         holder.recharge.text = car.recharge
-        Picasso.get().load(car.urlPhoto).into(holder.image)
+
+        if (!car.urlPhoto.isNullOrEmpty()) {
+            Picasso.get().load(car.urlPhoto).into(holder.image)
+        } else {
+            // Defina uma imagem de substituição quando o URL estiver vazio.
+            holder.image.setImageResource(R.drawable.ic_wifi_off)
+        }
+
         holder.favorite.setOnClickListener {
             val carro =  cars[position]
             carItemLister(carro)
             setupFavorite(carro, holder)
         }
-
-
-
-
     }
 
     private fun setupFavorite(
